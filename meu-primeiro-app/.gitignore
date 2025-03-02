@@ -40,3 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Arquivo que ignora arquivos de ache, arquivos resultantes do build,  ou arquivos especíicos do vs code.
