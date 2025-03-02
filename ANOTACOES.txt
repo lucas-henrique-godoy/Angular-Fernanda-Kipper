@@ -1,0 +1,36 @@
+						**CURSO DE ANGULAR**
+
+
+*INSTALAÇÃO DO ANGULAR:
+Passo a Passo para Instalar o Angular e Criar um Projeto
+
+1- Instalar o Node.js:
+   - Baixe e instale do site oficial.
+   - Verifique com node -v no Prompt de Comando.
+
+
+2- Instalar o Angular CLI:
+  - No Prompt de Comando, execute:
+    npm install -g @angular/cli
+
+3- Verificar instalação do Angular CLI:
+  - Execute:
+    ng version
+
+4- Criar um novo projeto Angular:
+  - Execute:
+    ng new nome-do-projeto
+
+
+5- Entrar na pasta do projeto:
+  - Execute:
+   cd nome-do-projeto
+
+
+6- Rodar o servidor de desenvolvimento:
+  - Execute:
+    ng serve
+  - Acesse em http://localhost:4200.
+
+7 - Editar o código:
+  - Abra o projeto em um editor (ex: VS Code) e comece a programar.
