@@ -1,3 +1,18 @@
-<p>Olá</p> 
+<p>Oi do Video {{name}}</p> 
 
-<button (click) ="submit()">clique</button>
+<button (click) ="submit($event)">clique</button>
+
+
+<h1 *ngIf="deveMostrarTitulo">Meu titulo</h1>  <!--Condicional da forma antiga em versões anteriores do Angular-->
+@if (deveMostrarTitulo) 
+{
+    <h1>Meu titulo</h1>
+}@else if (name == "Lucas") 
+{
+    <h1>Meu titulo para Lucas</h1>
+}
+@else
+{
+    <h1>Não foi verdadeiro</h1>
+}
+

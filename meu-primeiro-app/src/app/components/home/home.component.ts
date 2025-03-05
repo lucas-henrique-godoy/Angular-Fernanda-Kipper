@@ -1,15 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   name = "Lucas";
   idButton = "eeree";
+  deveMostrarTitulo = true;
   
   //meuBooleano = false;
 
@@ -19,8 +21,8 @@ export class HomeComponent {
   }
   */
 
-  submit()
+  submit(event: any)
   {
-    console.log("video")
+    console.log(event)
   }
 }
