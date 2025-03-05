@@ -221,3 +221,101 @@ Componentes cuidam da interface do usuário e da lógica de interação,
 Serviços compartilham funcionalidades entre componentes,
 Diretivas alteram o DOM e pipes transformam dados visualmente.
 Tudo é interconectado através do Angular CLI e suas ferramentas de build, e você pode expandir a aplicação adicionando mais funcionalidades conforme a necessidade.
+_______________________________________________________________________________________________________________________________________________________________________
+
+Obrigado pelo lembrete! Os comandos que mencionei funcionam no Windows, mas é importante lembrar de algumas especificidades do ambiente Windows, como o uso do PowerShell ou Prompt de Comando (cmd).
+
+Aqui estão algumas observações importantes para o uso de Angular CLI e os comandos relacionados em Windows:
+
+1. Verificação e Execução de Comandos no PowerShell
+Para verificar as versões instaladas de Angular, Node.js e npm no PowerShell (ou cmd), você pode usar:
+
+bash
+Copiar
+ng --version
+node --version
+npm --version
+Para rodar comandos Angular CLI no PowerShell, apenas use o mesmo formato mencionado. Se você encontrar algum erro relacionado a permissões, tente rodar o PowerShell como Administrador.
+
+2. Usando ng serve no Windows
+O comando ng serve abrirá a aplicação no navegador padrão, se você tiver configurado para abrir automaticamente. Caso queira apenas rodar no terminal, execute:
+bash
+Copiar
+ng serve
+E depois acesse a aplicação em http://localhost:4200/ no seu navegador.
+3. Abrindo um novo projeto no Visual Studio Code (VSCode)
+Se você usa VSCode no Windows, depois de criar o projeto Angular, pode abrir diretamente o VSCode com:
+
+bash
+Copiar
+code .
+Isso abre o diretório atual (.) no VSCode. Caso o code não seja reconhecido como comando, instale o VSCode e adicione o caminho do VSCode ao Path do sistema.
+
+4. Problemas com permissões no Windows
+Caso encontre erros de permissão ao tentar rodar comandos como ng serve ou npm install, tente:
+
+Rodar o PowerShell ou Prompt de Comando como Administrador.
+Clique com o botão direito do mouse sobre o ícone do PowerShell ou Prompt de Comando e selecione "Executar como administrador".
+Verifique se as permissões de leitura e gravação nas pastas de seu projeto estão corretas.
+5. Usando o comando ng build para produção
+Em ambientes Windows, ao rodar:
+
+bash
+Copiar
+ng build --prod
+o comando irá gerar a versão otimizada para produção dentro da pasta dist/. Isso pode demorar um pouco, dependendo do tamanho do seu projeto. Lembre-se de que os arquivos gerados em produção devem ser servidos de um servidor web real, pois a aplicação é otimizada.
+
+6. Erros comuns ao usar Angular no Windows
+Alguns erros podem ocorrer se você não tiver configurado corretamente as permissões ou se houver conflitos de versões. Isso pode ser resolvido:
+
+Excluindo node_modules e package-lock.json: Caso encontre erros ao instalar pacotes com o npm install, remova os arquivos e dependências temporárias:
+bash
+Copiar
+rmdir /S /Q node_modules
+del package-lock.json
+npm install
+Isso ajuda a reinstalar todas as dependências do projeto e pode corrigir problemas de dependências corrompidas ou versões incompatíveis.
+Resumo de Comandos para Windows
+Verificar a versão do Angular CLI, Node.js, npm:
+
+bash
+Copiar
+ng --version
+node --version
+npm --version
+Criar um novo projeto Angular:
+
+bash
+Copiar
+ng new nome-do-projeto
+Iniciar o servidor de desenvolvimento:
+
+bash
+Copiar
+ng serve
+Compilar para produção:
+
+bash
+Copiar
+ng build --prod
+Rodar os testes:
+
+bash
+Copiar
+ng test
+Criar um novo componente:
+
+bash
+Copiar
+ng generate component nome-do-componente
+Instalar uma nova biblioteca:
+
+bash
+Copiar
+ng add nome-da-biblioteca
+Atualizar Angular e suas dependências:
+
+bash
+Copiar
+ng update
+Com isso, você tem um conjunto de comandos essenciais para trabalhar com Angular no Windows.
