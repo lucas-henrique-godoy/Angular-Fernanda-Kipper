@@ -8,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  name = "Lucas";
+  idButton = "eeree";
+  
+  //meuBooleano = false;
 
+  /*atualizaBooleano(valor: boolean)
+  {
+    this.meuBooleano = valor;
+  }
+  */
+
+  submit()
+  {
+    console.log("video")
+  }
 }
