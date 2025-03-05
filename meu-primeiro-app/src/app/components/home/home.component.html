@@ -1,13 +1,16 @@
-<p>Oi do Video {{name}}</p> 
+<h1>{{teste}}</h1>
+
+
+<!--<p>Oi do Video {{name}}</p> -->
 
 <button (click) ="submit()">clique</button>
 
 
-<!--Condicional da sintaxe antiga em versões anteriores do Angular-->
+<!--1- Condicional da sintaxe antiga em versões anteriores do Angular
 <h1 *ngIf="deveMostrarTitulo">Meu titulo</h1>  
 
 
-<!--Condicional da sintaxe nova em versões atuais do Angular-->
+2- Condicional da sintaxe nova em versões atuais do Angular
 @if (deveMostrarTitulo) 
 {
     <h1>Meu titulo</h1>
@@ -20,11 +23,12 @@
     <h1>Não foi verdadeiro</h1>
 }
 
-<!--Loop da sintaxe nova em versões atuais do Angular-->
+3- Loop da sintaxe nova em versões atuais do Angular
 @for(item of listItems; track item) 
 {
     <p>{{item}}</p>
 }
 
-<!--Loop da sintaxe antigaem versões anteriores do Angular-->
+4- Loop da sintaxe antigaem versões anteriores do Angular
 <p *ngFor="let item of listItems">{{item}}</p>
+-->

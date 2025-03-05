@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { EnviaFormularioService } from '../../services/envia-formulario.service';
 
 @Component({
@@ -15,8 +15,14 @@ export class HomeComponent {
   idButton = "eeree";
   deveMostrarTitulo = true;
   listItems = ["Lucas", "Henrique", "Godoy"]
+
   
-   /*meuBooleano = false;
+  @Input("name") teste!: string;
+  
+  @Output()  emitindoValorName = new EventEmitter<string>();
+   
+  
+  /*meuBooleano = false;
      atualizaBooleano(valor: boolean)
     {
       this.meuBooleano = valor;
@@ -25,6 +31,7 @@ export class HomeComponent {
  
     submit()
     {
-      this.enviaFormularioService.enviaInformacaoParaBackend("enviando informacao");
+      this.emitindoValorName.emit(this.name)
+      //this.enviaFormularioService.enviaInformacaoParaBackend("enviando informacao");
     }
 }

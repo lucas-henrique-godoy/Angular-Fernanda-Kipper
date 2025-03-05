@@ -15,4 +15,9 @@ export class AppComponent {
   {
     console.log(event)
   }
+
+  logar(event: string)
+  {
+     console.log(event)
+  }
 }
