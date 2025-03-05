@@ -34,3 +34,190 @@ Passo a Passo para Instalar o Angular e Criar um Projeto
 
 7 - Editar o código:
   - Abra o projeto em um editor (ex: VS Code) e comece a programar.
+_______________________________________________________________________________________________________________________________________________________________________
+
+Uma aplicação Angular é uma estrutura complexa que segue uma arquitetura modular e componentizada. Vamos dividir as principais estruturas de uma aplicação Angular e entender o que cada parte faz:
+
+Estrutura de Diretórios Típica de um Projeto Angular
+Quando você cria um novo projeto Angular, você verá uma estrutura de diretórios semelhante a esta:
+
+ruby
+Copiar
+meu-primeiro-app/
+├── e2e/                          # Testes end-to-end
+├── node_modules/                 # Dependências do projeto
+├── src/
+│   ├── app/                      # Código-fonte da aplicação
+│   │   ├── app.component.ts      # Componente raiz da aplicação
+│   │   ├── app.module.ts         # Módulo raiz da aplicação
+│   │   ├── app.component.html    # Template do componente raiz
+│   │   ├── app.component.css     # Estilo do componente raiz
+│   │   ├── components/           # Pasta para outros componentes
+│   │   ├── services/             # Pasta para serviços
+│   │   └── ...                   # Outros arquivos e pastas
+│   ├── assets/                   # Imagens, fontes, ícones, etc.
+│   ├── environments/             # Configurações de ambiente (desenvolvimento/produção)
+│   ├── index.html                # Arquivo HTML principal
+│   ├── styles.css                # Arquivo de estilo global
+│   └── main.ts                   # Arquivo de entrada principal
+├── angular.json                  # Configurações do projeto Angular
+├── package.json                  # Dependências do projeto
+└── tsconfig.json                 # Configurações do TypeScript
+1. Módulos (app.module.ts)
+Módulo é a principal unidade de organização de uma aplicação Angular. Todo projeto Angular precisa de pelo menos um módulo: o AppModule, que é o módulo raiz da aplicação.
+Um módulo define o escopo para um conjunto de funcionalidades e declara componentes, diretivas, pipes e serviços que pertencem a esse módulo.
+Exemplo de app.module.ts:
+
+typescript
+Copiar
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],  // Declara os componentes pertencentes ao módulo
+  imports: [BrowserModule],      // Importa outros módulos necessários (como o BrowserModule)
+  providers: [],                 // Serviços que estarão disponíveis para injeção de dependência
+  bootstrap: [AppComponent]      // Componente raiz da aplicação
+})
+export class AppModule {}
+2. Componentes (app.component.ts)
+Componentes são as unidades fundamentais de uma aplicação Angular. Cada componente é composto por:
+Classe TypeScript (logicamente, o componente em si),
+Template HTML (a estrutura de marcação),
+Estilos CSS (a aparência visual),
+Os componentes no Angular são responsáveis por:
+
+Gerenciar o conteúdo, lógica e interação de uma parte da interface do usuário (UI),
+Serem declarados no módulo em que pertencem.
+Exemplo de app.component.ts:
+
+typescript
+Copiar
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'meu-primeiro-app';
+}
+Exemplo de app.component.html:
+
+html
+Copiar
+<h1>{{ title }}</h1>
+Exemplo de app.component.css:
+
+css
+Copiar
+h1 {
+  color: blue;
+}
+3. Serviços (app.service.ts)
+Serviços no Angular são classes que contêm lógica de negócios, comunicação com APIs e manipulação de dados.
+Servem para compartilhar dados e funcionalidade entre diferentes componentes da aplicação.
+Exemplo de app.service.ts:
+
+typescript
+Copiar
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',  // Torna o serviço disponível para toda a aplicação
+})
+export class AppService {
+  getData() {
+    return ['Angular', 'React', 'Vue'];
+  }
+}
+Injeção de Dependência (DI): Angular usa o conceito de injeção de dependência para fornecer serviços aos componentes ou outros serviços. O Angular cuida da criação e injeção das dependências, facilitando o gerenciamento e testabilidade.
+Uso do Serviço no Componente:
+
+typescript
+Copiar
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  data: string[] = [];
+
+  constructor(private appService: AppService) {}
+
+  ngOnInit() {
+    this.data = this.appService.getData();
+  }
+}
+4. Diretivas
+Diretivas são classes que alteram a aparência ou comportamento de um elemento no DOM (Document Object Model).
+Diretivas estruturais (como *ngIf, *ngFor) alteram a estrutura do DOM, enquanto diretivas de atributo (como ngClass, ngStyle) alteram o comportamento de um elemento.
+Exemplo de *ngIf:
+
+html
+Copiar
+<div *ngIf="showMessage">Mensagem visível</div>
+5. Pipes
+Pipes são usados para transformar valores diretamente no template HTML. Eles podem ser úteis para formatação de dados, como conversão de texto, datas ou números.
+Exemplo de date pipe:
+
+html
+Copiar
+<p>{{ currentDate | date:'short' }}</p>
+6. Roteamento (Routing)
+O Roteamento no Angular é a maneira de navegar entre diferentes componentes e páginas da aplicação. O Angular oferece uma API poderosa para configurar o roteamento, permitindo definir caminhos (URLs) e os componentes que devem ser renderizados.
+Exemplo de configuração de roteamento (app-routing.module.ts):
+
+typescript
+Copiar
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+7. Ambientes (Environment Variables)
+O Angular permite que você tenha configurações diferentes para ambientes de desenvolvimento e produção. Esses valores são definidos nos arquivos dentro da pasta environments/.
+Exemplo de environment.ts (desenvolvimento):
+
+typescript
+Copiar
+export const environment = {
+  production: false,
+  apiUrl: 'https://dev.api.example.com'
+};
+Exemplo de environment.prod.ts (produção):
+
+typescript
+Copiar
+export const environment = {
+  production: true,
+  apiUrl: 'https://prod.api.example.com'
+};
+8. Arquivos de Configuração
+angular.json: Contém as configurações globais do projeto, como os arquivos de entrada, configurações de build, configurações de testes, etc.
+tsconfig.json: Configurações do compilador TypeScript.
+package.json: Lista de dependências e scripts do projeto.
+Conclusão
+Essa é a estrutura básica de um aplicativo Angular. Em resumo:
+
+Módulos organizam a aplicação,
+Componentes cuidam da interface do usuário e da lógica de interação,
+Serviços compartilham funcionalidades entre componentes,
+Diretivas alteram o DOM e pipes transformam dados visualmente.
+Tudo é interconectado através do Angular CLI e suas ferramentas de build, e você pode expandir a aplicação adicionando mais funcionalidades conforme a necessidade.
