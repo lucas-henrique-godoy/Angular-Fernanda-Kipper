@@ -12,6 +12,7 @@ export class HomeComponent {
   name = "Lucas";
   idButton = "eeree";
   deveMostrarTitulo = true;
+  listItems = ["Lucas", "Henrique", "Godoy"]
   
   //meuBooleano = false;
 

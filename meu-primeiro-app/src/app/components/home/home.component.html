@@ -3,7 +3,11 @@
 <button (click) ="submit($event)">clique</button>
 
 
-<h1 *ngIf="deveMostrarTitulo">Meu titulo</h1>  <!--Condicional da forma antiga em versões anteriores do Angular-->
+<!--Condicional da sintaxe antiga em versões anteriores do Angular-->
+<h1 *ngIf="deveMostrarTitulo">Meu titulo</h1>  
+
+
+<!--Condicional da sintaxe nova em versões atuais do Angular-->
 @if (deveMostrarTitulo) 
 {
     <h1>Meu titulo</h1>
@@ -14,5 +18,11 @@
 @else
 {
     <h1>Não foi verdadeiro</h1>
+}
+
+<!--Condicional da sintaxe nova em versões atuais do Angular-->
+@for(item of listItems; track item) 
+{
+    <p>{{item}}</p>
 }
 
