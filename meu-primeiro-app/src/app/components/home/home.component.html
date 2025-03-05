@@ -20,9 +20,11 @@
     <h1>Não foi verdadeiro</h1>
 }
 
-<!--Condicional da sintaxe nova em versões atuais do Angular-->
+<!--Loop da sintaxe nova em versões atuais do Angular-->
 @for(item of listItems; track item) 
 {
     <p>{{item}}</p>
 }
 
+<!--Loop da sintaxe antigaem versões anteriores do Angular-->
+<p *ngFor="let item of listItems">{{item}}</p>
